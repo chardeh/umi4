@@ -1,4 +1,9 @@
-
+h1 {
+  text-align: justify;
+  color: #fff;
+  font-size: 2em;
+  margin-top: 20px;
+}
                                 
 body {
   margin: 0;

@@ -233,13 +233,12 @@ function init() {
         particlesArray.push(new Particle(point.x, point.y));
     }
 }
-
 function drawText() {
     if (!textToDisplay || textToDisplay.length === 0) return;
 
-    const fontSize = 20;
+    const fontSize = config.baseFontSize / 2;
     const lineHeight = fontSize * 1.4;
-    const padding = 10; // padding around text background
+    const padding = 10;
 
     ctx.font = `${fontSize}px 'Dancing Script', cursive`;
     ctx.textAlign = 'center';
@@ -251,11 +250,10 @@ function drawText() {
     textToDisplay.forEach((line, index) => {
         const y = startY + index * lineHeight;
 
-        // Measure text width for background
         const textWidth = ctx.measureText(line).width;
 
-        // Draw white background rectangle
-        ctx.fillStyle = '#ffffff'; // white background
+        // Draw background rectangle (white)
+        ctx.fillStyle = '#ffffff';
         ctx.fillRect(
             canvas.width / 2 - textWidth / 2 - padding,
             y - fontSize / 2 - padding / 2,
@@ -263,11 +261,11 @@ function drawText() {
             fontSize + padding
         );
 
-        // Draw black text
-        ctx.fillStyle = '#000000'; // black text
+        // Draw text (use config color)
+        ctx.fillStyle = config.textColor;
         ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
-        ctx.strokeStyle = '#000000';
+        ctx.strokeStyle = config.textColor;
         ctx.lineWidth = 1;
 
         ctx.fillText(line, canvas.width / 2, y);
