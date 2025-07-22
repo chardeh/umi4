@@ -236,7 +236,7 @@ function init() {
 function drawText() {
     if (!textToDisplay || textToDisplay.length === 0) return;
 
-    const fontSize = config.baseFontSize / 2;
+    const fontSize = config.baseFontSize / 2.4;
     const lineHeight = fontSize * 1.4;
     const padding = 10;
 
@@ -245,7 +245,7 @@ function drawText() {
     ctx.textBaseline = 'middle';
 
     const totalHeight = lineHeight * textToDisplay.length;
-    const startY = canvas.height / 2 - totalHeight / 2;
+    const startY = canvas.height / 2 - totalHeight / 2 + 60;
 
     textToDisplay.forEach((line, index) => {
         const y = startY + index * lineHeight;
